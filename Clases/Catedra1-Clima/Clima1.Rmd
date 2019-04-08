@@ -1,0 +1,270 @@
+---
+title: "Suelo Agua Planta Clima (SAPC)"
+subtitle: "Clima"
+author: "Francisco Zambrano"
+date: "19 de marzo 2019"
+output:
+  xaringan::moon_reader:
+    encoding: UTF-8
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: center, middle
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(tidyverse)
+library(mapview)
+dir.data <- '/mnt/discoHemera4TB1/UMayor/Agronomia/Cursos/2018/Diplomado-Riego/data/'
+```
+
+```{r xaringan-themer, include=FALSE}
+library(xaringanthemer)
+mono_light(base_color = "#23395b")
+```
+
+# Tercer módulo asignatura
+
+---
+# Programa tentativo
+
+| Fecha       | Tema                                           |
+|-------------|------------------------------------------------|
+| 19/03/2019  | Cátedra 1: Clima y su clasificación            |
+| 26/03/2019  | Taller  1: Extracción de datos climáticos Köppen-Geiger |
+| 02/04/2019  | Cátedra 2: Principales variables ambientales   |
+| 09/04/2019  | Taller  2: Extracción datos climáticos Chile   |
+| 16/04/2019  | Cátedra 3: Suelo-Agua                          |
+| 23/04/2019  | Taller  3: Soil Water Characteristics          |                                            
+| 30/04/2019  | Cátedra 4: Cálculo de demanda de agua          |
+| 07/05/2019  | Cátedra 5: Uso de CropWat 8.0                  |
+| 14/05/2019  | Taller  5: CropWat 8.0 (Parte I)               |
+| 28/05/2019  | Taller  6: CropWat 8.0 (Parte II)              |
+| 04/06/2019  | Seminario proyecto final                       |
+
+
+---
+# Proyecto final (Seminario)
+
+- Determinar la demanda de agua para un cultivo de la zona centro-sur de Chile en un escenario climático presente y compararlo con un escenario futuro de altas emisiones de gases de efectos invernaderos RCP 8.5.
+
+Referencia: 
+
+> **Zenteno, Joaquín. (2019)**. Factibilidad edafoclimática para la plantación de Paltos en un contexto de Cambio Climático. Caso de Estudio: Variedad Hass   (Persea americana mill) en fundo Caimaco, Quillón, Chile. Escuela de Agronomía. Universidad Mayor.
+
+---
+
+# Softwares a utilizar
+
+- **QGIS:** Programa de Sistemas de Información Geográfica (SIG)
+
+- **Soil Water Characteristics:** Obtener propiedades hídricas de suelo en base a textura
+
+- **CropWat 8.0:** Cálculo de demanda de agua y programación de riego
+
+---
+class: center, middle
+
+# Contexto climático
+
+---
+# Linea de investigación
+
+- Estudio de la `sequía agrícola` mediante teledetección a escala regional.
+
+- Principales artículos publicados
+
+  - **Zambrano, F.**, Vrieling, A., Nelson, A., Meroni, M., & Tadesse, T. (**2018**). Prediction of drought-induced reduction of agricultural productivity in Chile from MODIS, rainfall estimates, and climate Oscillation indices. Remote Sensing of Environment, 219,15-30. https://doi.org/10.1016/J.RSE.2018.10.006
+
+![](img/paper_2018.png)
+
+---
+# Linea de investigación
+
+![](img/study_area_paper.jpg)
+---
+# Linea de investigación
+
+![](img/accuracies_prediction_paper.jpg)
+---
+# Linea de investigación
+
+- Principales artículos publicados
+
+  - **Zambrano, F.**, Wardlow, B., Tadesse, T., Lillo-Saavedra, M., & Lagos, O. (**2017**). Evaluating satellite-derived long-term historical precipitation datasets for drought monitoring in Chile. Atmospheric Research, 186, 26-42. https://doi.org/10.1016/j.atmosres.2016.11.006
+  
+    - **Zambrano, F.**, Lillo-Saavedra, M., Verbist, K., & Lagos, O. (**2016**). Sixteen years of Agricultural Drought Assessment of the Bio-Bío Region in Chile using a 250m resolution Vegetation Condition Index (VCI). Remote Sens., 8(6), 530. https://doi.org/10.3390/rs8060530
+
+
+---
+class: center, middle
+# Importancia del clima
+
+---
+# Últimos estudios en Chile
+
+![](img/estudio_clima_chile_maisa.png)
+
+---
+# Es un desafío alimentar a la población mundial para el 2050
+
+![](img/calories_consumption.png)
+
+---
+# 1 Demanda de alimento
+
+Para abastaecer la demanda mundial para el 2050, la producción agrícola debe `aumentar en 60%`
+
+![](img/food_demand.jpg)
+---
+# 1 Demanda de alimento
+
+Los rendimientos de maíz, arroz, trigo y soja; `todos` deben `aumentar` en un `60%` para el 2050 para cumplir con la demanda.
+
+El crecimiento actual del rendimiento se está `quedando corto` en cumplir este objetivo.
+
+.center[
+![](img/cereals_production.png)
+]
+
+Fuente: https://ccafs.cgiar.org/bigfacts/#theme=food-security
+---
+# 2 Distribución desigual
+
+**Mapa de prevalencia de la desnutrición**
+
+![](img/alimentos_distribucion_desigual.jpg)
+Fuente: http://www.fao.org/economic/ess
+---
+# 3 Derroche de alimentos
+
+Casi `un billon de personas` están pasando hambre, mientras desperdiciamos `1/3 del alimento que producimos`
+
+.pull-left[
+![](img/food_waste.png)
+]
+.pull-right[
+
+Deperdicio de alimentos
+
+https://www.youtube.com/watch?v=7uhicBad4VM
+
+https://www.youtube.com/watch?v=Gv_4qGrtyZc
+]
+
+Fuente: http://ccafs.cgiar.org/bigfacts2014/#theme=food-security
+---
+
+# 4 Cambio climático
+
+![](img/IPCC_human_trhough_time.png)
+
+
+---
+class: center, middle
+
+# Cambio climático
+
+---
+# Definición
+--
+
+El **cambio climático** se refiere a una amplia gama de fenómenos globales creados principalmente por la quema de combustibles fósiles, que agregan gases que **atrapan el calor en la atmósfera de la Tierra**. Estos fenómenos incluyen el aumento de las tendencias de temperatura descritas por el calentamiento global, pero también abarcan cambios como el aumento del nivel del mar; pérdida de masa de hielo en Groenlandia, la Antártida, el Ártico y los glaciares de montaña en todo el mundo; cambios en el florecimiento (flor/planta); y los fenómenos meteorológicos extremos.
+
+--
+
+El tiempo puede cambiar en tan solo unas horas. El clima tarda cientos o incluso millones de años en cambiar.
+---
+
+# ¿Qué sabemos sobre el cambio climático?
+**Evidencia**
+
+![](img/203_co2-graph-021116.jpeg)
+
+---
+background-image: url(gifs/global_warming.gif)
+background-size: contain
+
+# Cambio en la temperatura
+---
+
+# ¿Qué sabemos sobre el cambio climático?
+**Evidencia**
+--
+![](img/GlobalTemp.png)
+
+---
+
+# ¿Qué rol juega el ser humano?
+--
+
+**Consenso científico**
+
+El `noventa y siete por ciento (97%)` de los científicos del clima están de acuerdo en que las tendencias del calentamiento del clima durante el siglo pasado son `muy probablemente debidas` a las actividades humanas, y la mayoría de las principales organizaciones científicas del mundo han emitido declaraciones públicas que respaldan esta posición.
+
+- Cook, J., Nuccitelli, D., Green, S. A., Richardson, M., Winkler, B., Painting, R., Skuce, A. (2013). Quantifying the consensus on anthropogenic global warming in the scientific literature. Environmental Research Letters, 8(2), 24024. Retrieved from http://stacks.iop.org/1748-9326/8/i=2/a=024024
+
+- Cook, J., Oreskes, N., Doran, P. T., Anderegg, W. R. L., Verheggen, B., Maibach, E. W., Rice, K. (2016). Consensus on consensus: a synthesis of consensus estimates on human-caused global warming. Environmental Research Letters, 11(4), 48002. Retrieved from http://stacks.iop.org/1748-9326/11/i=4/a=048002
+
+---
+
+# Escenarios de emisiones: RCP
+
+RCP: Trayectorias de Concentración Representativas
+
+Las cuatro trayectorias RCP comprenden un escenario en el que los esfuerzos en mitigación conducen a un nivel de forzamiento muy bajo (RCP2.6), 2 escenarios de estabilización (RCP4.5 y RCP6.0) y un escenario con un nivel muy alto de emisiones de GEI (RCP8.5). 
+
+Los nuevos RCP pueden contemplar los efectos de las políticas orientadas a limitar el cambio climático del siglo XX frente a los escenarios de emisión utilizados en el IPCC Fourth Assessment Report: Climate Change 2007 (AR4) (denominados SRES, por sus siglas en inglés) que no contemplaban los efectos de las posibles políticas o acuerdos internacionales tendentes a mitigar las emisiones. 
+
+---
+# Escenarios de emisiones: RCP
+
+![](img/escenarios_RCP.png)
+
+FR: Forzamiento radiativo
+
+---
+# Escenarios de emisiones: RCP
+
+![](img/RCPs_Fig.jpg)
+
+FR: Forzamiento radiativo
+
+---
+# Escenarios de emisiones: RCP
+
+![](img/IPCC-AR5-Fig-12.5-1024x677.png)
+
+---
+# Desafíos que impone el Cambio Climático en la Agricultura.
+
+> Los esfuerzos de América Latina y el Caribe deben ir en el desarrollo de políticas y programas que promueven la adaptación al cambio climático. (FAO, 2018)
+
+i.- mejorar la ordenación sustentable de los recursos naturales; 
+
+ii.- aumentar el acceso a sistemas de transporte, energía y agrícolas de bajas emisiones y que tengan un enfoque acertado en relación con el clima
+
+iii.- reducir la vulnerabilidad de los territorios ante las crisis vinculadas con los fenómenos climáticos.
+
+---
+# Fuente de información de simulaciones climáticas
+
+http://simulaciones.cr2.cl/
+
+---
+
+# Referencias 
+
+Beck, H. E., Zimmermann, N. E., McVicar, T. R., Vergopolan, N., Berg, A., & Wood, E. F. (2018). Present and future Köppen-Geiger climate classification maps at 1-km resolution. Scientific Data, 5, 180214. https://doi.org/10.1038/sdata.2018.214
+
+Kottek, M., J. Grieser, C. Beck, B. Rudolf, and F. Rubel, 2006: World Map of the Köppen-Geiger climate classification updated. Meteorol. Z., 15, 259-263. DOI: 10.1127/0941-2948/2006/0130.
+
+Fick, S.E. and R.J. Hijmans, 2017. Worldclim 2: New 1-km spatial resolution climate surfaces for global land areas. International Journal of Climatology
+
+**Zambrano, F.**, Vrieling, A., Nelson, A., Meroni, M., & Tadesse, T. (**2018**). Prediction of drought-induced reduction of agricultural productivity in Chile from MODIS, rainfall estimates, and climate Oscillation indices. Remote Sensing of Environment.
+
+

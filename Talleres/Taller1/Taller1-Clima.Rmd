@@ -1,0 +1,339 @@
+---
+title: "Taller 1 - SAPC"
+subtitle: "Datos Worldclim 2 y clasificaci?n de K?ppen-Geiger"
+author: "Profesor Francisco Zambrano"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: 
+  pdf_document:
+    number_sections: true
+    toc: true
+    includes:
+      in_header: header.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+Sys.setenv(LANG = "es")
+```
+
+# Introducci?n
+
+WorldClim versi?n 2 proporciona datos promedios mensuales para temperatura m?nima, media y m?xima; adem?s de precipitaci?n, velocidad del viento, radiaci?n solar y presi?n de vapor de agua para el periodo clim?tico 1970-2000.
+
+La variables se pueden descargar para diferentes resoluciones espaciales, desde 30 segundos (~1 $km^2$) hasta 10 minutos (~340 $km^2$). Cada archivo descargado corresponde a un archivo `.zip` que contiene 12 archivos GeoTiff (.tif), uno para cada mes del a?o (enero corresponde a "1"; diciembre corresponde a "12").
+
+El mapa de clasificaci?n clim?tica m?s utilizado es el de Wladimir K?ppen, presentado en su ?ltima versi?n en 1961 por Rudolf Geiger. Una gran cantidad de estudios clim?ticos y publicaciones posteriores adoptaron esta o una versi?n anterior del mapa K?ppen-Geiger. Si bien el concepto de clasificaci?n clim?tica se ha aplicado ampliamente a una gama de temas en investigaci?n sobre cambio clim?tico y clima, as? como en geograf?a f?sica, hidrolog?a, agricultura, biolog?a y aspectos educativos, una actualizaci?n bien documentada del mapa mundial de clasificaci?n clim?tica es necesaria. En base a los datos recientes de la Unidad de Investigaci?n Clim?tica (CRU) de la Universidad de East Anglia y del Centro Global de Climatolog?a de Precipitaciones (GPCC) del Servicio Meteorol?gico Alem?n, se ha generado un nuevo mapa mundial digital K?ppen-Geiger sobre clasificaci?n clim?tica para la segunda mitad del siglo 20.
+
+# Objetivo del laboratorio
+
+Qu? el alumno sea capaz de extraer informaci?n de promedios clim?ticos mensuales de precipitaci?n acumulada y temperatura media mensual desde datos Worldclim 2 (http://www.worldclim.com), para distintas zonas clim?ticas de Chile de acuerdo a la clasificaci?n de K?ppen-Geiger (1950-2000) (http://koeppen-geiger.vu-wien.ac.at/)
+
+# Softwares a utilizar
+
+- Microsoft Excel
+
+- QGIS : es una aplicaci?n de Sistema de Informaci?n Geogr?fica (SIG) que est? construido como Software libre y de c?digo abierto (FOSS).
+
+# Metodolog?a del laboratorio
+
+## Descarga de datos
+
+1. Descargar desde la plataforma blackboard en la secci?n del curso correspondiente al Taller 1, el archivo "data.zip" 
+
+2. Copiar el archivo "data.zip" 
+
+![](figs/fig1.png)
+
+3. Pegar en la carpeta "Documentos/SAPC/Taller"
+
+![](figs/fig2.png)
+
+4. Extraer los archivos en la misma carpeta
+
+5. Una vez extra?do los archivos eliminar el archivo "data.zip"
+
+![](figs/fig3.png)
+
+6. Ahora deber?a tener dentro de la carpeta "data" una carpeta llamada "spatial" y dentro de ?sta dos carpetas: 1) raster y 2) vectorial.
+
+![](figs/fig4.png)
+
+## Cargar mapa de referencia Open Street Map en QGIS
+
+7. Inicie el software QGIS que se encuentra instalado en su computador
+
+![](figs/fig5.png)
+
+8. Haga click con el boton derecho del mouse en el "panel del explorador" sobre "Tile Server (X,Y,Z)" y pinche en "New Connection..."
+
+![](figs/fig5_1.png)
+
+9. Escriba en el casillero el siguiente link "http://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+
+![](figs/fig5_2.png)
+
+10. Como nombre de la capa escriba "OSM"
+
+![](figs/fig5_3.png)
+
+11. Luego, haga click con el boton derecho en la capa reci?n creada "OSM" y luecgo haga click en a?adir capa
+
+![](figs/fig5_4.png)
+
+12. Ahora deber?a aparecer de fondo como mapa de referencia una capa de Open Street Map
+
+![](figs/fig5_5.png)
+
+## Cargar capa vectorial del esqu?ma de clasificaci?n de K?ppen-Geiger en QGIS
+
+13. Haga click en el boton "A?adir capa vectorial"
+
+![](figs/fig6.png)
+
+14. Pinche en el boton "Explorar"
+
+![](figs/fig7.png)
+
+15. Vaya a la carpeta "vectorial" 
+
+![](figs/fig8.png)
+
+16. Haga doble click en el archivo "clima_chile.gpks"
+
+![](figs/fig9.png)
+
+17. Ahora QGIS le mostrar? la capa vectorial para la clasificaci?n de clima de K?ppen-Geiger correspondiente a Chile.
+
+![](figs/fig10.png)
+
+18. Haga click derecho sobre la capa de clima y luego pinche en "Propiedades"
+
+19. En el men? de "Estilo" cambie el tipo de simbolog?a por "Categorizado" 
+
+![](figs/fig10_1.png)
+
+20. Donde dice columna seleccione "climate"
+
+![](figs/fig10_2.png)
+
+21. Pinche en el boton "Clasificar" y luego en "Aceptar"
+
+![](figs/fig10_3.png)
+
+22. Ahora QGIS muestra con distintos colores los distintos tipos de clima oara Chile}
+
+![](figs/fig10_5.png)
+
+## Crear un stack con datos raster de precipitaci?n mensual
+
+23. Pinche en el boton "A?adir capa raster"
+
+![](figs/fig11.png)
+
+24. Vaya a la carpeta "spatial"
+
+![](figs/fig12.png)
+
+25. Haga click en la carpeta "prec" que corresponde a precipitaci?n mensual
+
+![](figs/fig13.png)
+
+26. Dentro de la carpeta encontrar? 12 archivos raster que corresponde a la precipitaci?n mensual promedio 1970-2000.
+
+![](figs/fig14.png)
+
+27. Seleccione los 12 archivos y haga click en "Abrir"
+
+![](figs/fig15.png)
+
+28. Ahora QGIS le muestra las 12 capas con datos de precipitaci?n mensual en forma separada
+
+29. Pinche en el men? "Raster", "Miscelanea" y "Construir raster virtual (catalogo)"
+
+![](figs/fig16.png)
+
+30. Haga click en "Seleccionar"" al lado derecho de d?nde dice  "Archivos de entrada"
+
+![](figs/fig17.png)
+
+31. De la carpeta "spatial/raster/prec" seleccione los 12 archivos de precipitaci?n
+
+![](figs/fig18.png)
+
+32. Seleccione la opci?n que dice "Separar" y luego haga click en "Seleccionar" pero ?sta vez al lado derecho de donde dice "Archivo de salida"
+
+![](figs/fig19.png)
+
+33. Guarde el archivo en la carpeta "raster"" con el nombre "raster_virtual.vrt"
+
+![](figs/fig20.png)
+
+34. El proceso de creaci?n del stack con los doce meses est? completo. Pinche en "Aceptar" luego "Aceptar" y despu?s en "Cerrar"
+
+![](figs/fig21.png)
+
+35. En el "Panel de Capas" deber?a aparecer algo como lo siguiente
+
+![](figs/fig22.png)
+
+36. Seleccione las capas de precipitaci?n raster pero no la de "raster_virtual", haga click derecho y presione en "Eliminar" y luego aceptar
+
+![](figs/fig23.png)
+
+37. Haga click con el boton derecho en la capa "raster virtual" y luego en "Guardar Como" 
+
+![](figs/fig24.png)
+
+38. Guarde el stack en la carpeta "raster" con el nombre "precipitacion_stack.tif"
+
+![](figs/fig25.png)
+
+39. Elimine el "raster virtual"
+
+![](figs/fig26.png)
+
+40. Ahora deber?an quedar las capas como se muestra en la figura
+
+![](figs/fig27.png)
+
+## Crear capa vectorial con punto de inter?s
+
+41. Pinche en el men? "Capa", luego en "Crear capa" y despu?s en "Nueva capa de archivo shape..."
+
+![](figs/fig28.png)
+
+42. Seleccione como "Tipo" la opci?n "Punto" y luego haga click en "Aceptar"
+
+![](figs/fig29.png)
+
+43. Guarde el archivo con el nombre "puntos_clima.shp"
+
+![](figs/fig30.png)
+
+44. Ahora haga pinche en la capa creada "puntos_clima" y luego haga click en el boton "Conmutar edici?n"
+
+![](figs/fig31.png)
+
+45. Ahora se encuentra editando la capa "puntos_clima" y puede comenzar a crear puntos en zonas de inter?s.
+
+![](figs/fig32.png)
+
+46. Cree un punto en Copiapo, Quinta Normal y Osorno
+
+47. Pinche en el boton "A?adir objeto espacial"
+
+![](figs/fig33.png)
+ 
+ 48. Ingrese los "id" en forma numerada incremental, es decir para el primer punto el n?mero 1, luego el dos y as? en adelante
+ 
+![](figs/fig34.png)
+ 
+ 49. Despu?s de terminar deber?a ver una imagen como la de la figura
+ 
+![](figs/fig35.png)
+
+50. Luego haga click en el boton "Conmutar edici?n" para terminar de editar la capa, en el cuadro de dialogo haga click en "Guardar"
+
+![](figs/fig36.png)
+
+## Extraer datos de precipitaci?n mensual en los puntos de inter?s
+
+51. Haga click en el men? "Complementos" y despu?s en "Administrar e instalar complementos..."
+
+![](figs/fig37.png)
+
+52. En "Buscar" escriba "point sampling tool"
+
+![](figs/fig38.png)
+
+53. Luego haga click en "Instalar complemento"
+
+![](figs/fig39.png)
+
+54. Pinche en la capa "puntos_clima"
+
+![](figs/fig39_1.png)
+
+55. Haga click en el men? "Complementos", "Analyses", y despu?s en "Point sampling tool"
+
+![](figs/fig40.png)
+
+56. Aparecer? un mensaje de advertencia indicando que le numero de caracteres no puede exceder de 10
+
+![](figs/fig41.png)
+
+57. Cambie los nombres de la columna "name" de los tres ?ltimos registros para que no excedan 10 caracteres
+
+![](figs/fig42.png)
+
+58. Despu?s pinche en "Browse" para seleccionar el nombre y carpeta donde guardar? los datos que se extraer?n. Guarde en la carpeta "vectorial" con el nombre "extracci?n_datos_puntos.shp"
+
+![](figs/fig43.png)
+
+59. Ahora puede ver la tabla de atributos de la capa creada que tiene los datos de precipitaci?n extra?dos. Haga click con el boton derecho del mouse en la capa "extracci?n_datos_puntos" y luego en "Abrir tabla de atributos"
+
+![](figs/fig44.png)
+
+60. Cada fila corresponde a uno de los puntos en los cu?les se extrajo los datos de precipitaci?n (Copiapo, Quinta Normal, Osorno). La primera columna corresponde al identificador "id" del punto y las siguientes a cada mes del a?o.
+
+![](figs/fig45.png)
+
+61. Ahora vamos a guardar los datos extra?dos para poder abrirlos en "Excel". Hacemos click con el boton derecho del mouse en la capa "extraccion_datos_puntos" y luego en "Guardar como..."
+
+![](figs/fig46.png)
+
+62. En formato seleccione "Hoja de c?lculo de MS Office Open XML"
+
+![](figs/fig47.png)
+
+63. Gu?rdelos en la carpeta "data" con el nombre "datos_precipitaci?n.xlsx"
+
+![](figs/fig48.png)
+
+64. Luego haga click en "Aceptar"
+
+![](figs/fig49.png)
+
+## Crear gr?ficos en Microsoft Excel
+
+65. Con el explorador de Windows vaya a la carpeta "data" en donde guard? el archivo "datos_precipitaci?n.xlsx" y haga doble click para que se abre en Excel.
+
+![](figs/fig50.png)
+66. Seleccione todos los datos (3 filas x 13 columnas).
+
+67. En una hoja nueva haga click con el boton derecho del mouse en la celda A1 y seleccione pegado especial. Active la casilla que dice transponer.
+
+![](figs/fig51.png)
+
+68. Deber?a ver algo como lo siguiente
+
+![](figs/fig52.png)
+
+69. Cambie los encabezados de columna como se muestra 
+
+![](figs/fig53.png)
+
+70. Ahora repita los pasos de las secciones 4.4, 4.5 y 4.6 pero para los datos de temperatura media mensual. Luego complete la tabla anterior.
+
+71. Finalmente cree un gr?fico como el que se muestra a continuaci?n para cada uno de los puntos en los cuales se extrajeron datos de precipitaci?n y temperatura.
+
+# Resultados esperados
+
+- Generar tres gr?ficos de precipitaci?n y temperatura para distintas zonas clim?ticas de Chile.
+
+Nota: Cada una de las figuras debe ser enviada al email francisco.zambrano@mayor.cl en formato Portable Document Format (PDF). 
+
+Fecha de entrega: **2 de abril hasta las 11:30**
+
+
+# Referencias
+
+Kottek, M., J. Grieser, C. Beck, B. Rudolf, and F. Rubel, 2006: World Map of the K?ppen-Geiger climate classification updated. Meteorol. Z., 15, 259-263. DOI: 10.1127/0941-2948/2006/0130.
+
+Fick, S.E. and R.J. Hijmans, 2017. Worldclim 2: New 1-km spatial resolution climate surfaces for global land areas. International Journal of Climatology.
+
+Beck, H. E., Zimmermann, N. E., McVicar, T. R., Vergopolan, N., Berg, A., & Wood, E. F. (2018). Present and future K?ppen-Geiger climate classification maps at 1-km resolution. Scientific Data, 5, 180214. https://doi.org/10.1038/sdata.2018.214
+
+Zambrano, F., Wardlow, B., Tadesse, T., Lillo-Saavedra, M., & Lagos, O. (2017). Evaluating satellite-derived long-term historical precipitation datasets for drought monitoring in Chile. Atmospheric Research, 186, 26???42. https://doi.org/10.1016/J.ATMOSRES.2016.11.006
+
+

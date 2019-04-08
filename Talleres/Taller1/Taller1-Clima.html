@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Taller 1 - SAPC</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Profesor Francisco Zambrano" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+&lt;div class="my-logo-left"&gt;&lt;/div&gt;
+
+&lt;div class="my-logo-right"&gt;&lt;/div&gt; 
+
+# hello
+
+
+
+# Introducción
+
+WorldClim versión 2 proporciona datos promedios mensuales para temperatura mínima, media y máxima; además de precipitación, velocidad del viento, radiación solar y presión de vapor de agua para el periodo climático 1970-2000.
+
+La variables se pueden descargar para diferentes resoluciones espaciales, desde 30 segundos (~1 `\(km^2\)`) hasta 10 minutos (~340 `\(km^2\)`). Cada archivo descargado corresponde a un archivo `.zip` que contiene 12 archivos GeoTiff (.tif), uno para cada mes del año (enero corresponde a "1"; diciembre corresponde a "12").
+
+El mapa de clasificación climática más utilizado es el de Wladimir Köppen, presentado en su última versión en 1961 por Rudolf Geiger. Una gran cantidad de estudios climáticos y publicaciones posteriores adoptaron esta o una versión anterior del mapa Köppen-Geiger. Si bien el concepto de clasificación climática se ha aplicado ampliamente a una gama de temas en investigación sobre cambio climático y clima, así como en geografía física, hidrología, agricultura, biología y aspectos educativos, una actualización bien documentada del mapa mundial de clasificación climática es necesaria. En base a los datos recientes de la Unidad de Investigación Climática (CRU) de la Universidad de East Anglia y del Centro Global de Climatología de Precipitaciones (GPCC) del Servicio Meteorológico Alemán, se ha generado un nuevo mapa mundial digital Köppen-Geiger sobre clasificación climática para la segunda mitad del siglo 20.
+
+# Objetivo del laboratorio
+
+Qué el alumno sea capaz de extraer información de promedios climáticos mensuales de precipitación acumulada y temperatura media mensual desde datos Worldclim 2 (http://www.worldclim.com), para distintas zonas climáticas de Chile de acuerdo a la clasificación de Köppen-Geiger (1950-2000) (http://koeppen-geiger.vu-wien.ac.at/)
+
+# Softwares a utilizar
+
+- Microsoft Excel
+
+- QGIS : es una aplicación de Sistema de Información Geográfica (SIG) que está construido como Software libre y de código abierto (FOSS).
+
+# Metodología del laboratorio
+
+## Descarga de datos
+
+1. Descargar desde la plataforma blackboard en la sección del curso correspondiente al Taller 1, el archivo "data.zip" 
+
+2. Copiar el archivo "data.zip" 
+
+![](figs/fig1.png)
+
+3. Pegar en la carpeta "Documentos/SAPC/Taller"
+
+![](figs/fig2.png)
+
+4. Extraer los archivos en la misma carpeta
+
+5. Una vez extraído los archivos eliminar el archivo "data.zip"
+
+![](figs/fig3.png)
+
+6. Ahora debería tener dentro de la carpeta "data" una carpeta llamada "spatial" y dentro de ésta dos carpetas: 1) raster y 2) vectorial.
+
+![](figs/fig4.png)
+
+## Cargar mapa de referencia Open Street Map en QGIS
+
+7. Inicie el software QGIS que se encuentra instalado en su computador
+
+![](figs/fig5.png)
+
+8. Haga click con el boton derecho del mouse en el "panel del explorador" sobre "Tile Server (X,Y,Z)" y pinche en "New Connection..."
+
+![](figs/fig5_1.png)
+
+9. Escriba en el casillero el siguiente link "http://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+
+![](figs/fig5_2.png)
+
+10. Como nombre de la capa escriba "OSM"
+
+![](figs/fig5_3.png)
+
+11. Luego, haga click con el boton derecho en la capa recién creada "OSM" y luecgo haga click en añadir capa
+
+![](figs/fig5_4.png)
+
+12. Ahora debería aparecer de fondo como mapa de referencia una capa de Open Street Map
+
+![](figs/fig5_5.png)
+
+## Cargar capa vectorial del esquéma de clasificación de Köppen-Geiger en QGIS
+
+13. Haga click en el boton "Añadir capa vectorial"
+
+![](figs/fig6.png)
+
+14. Pinche en el boton "Explorar"
+
+![](figs/fig7.png)
+
+15. Vaya a la carpeta "vectorial" 
+
+![](figs/fig8.png)
+
+16. Haga doble click en el archivo "clima_chile.gpks"
+
+![](figs/fig9.png)
+
+17. Ahora QGIS le mostrará la capa vectorial para la clasificación de clima de Köppen-Geiger correspondiente a Chile.
+
+![](figs/fig10.png)
+
+18. Haga click derecho sobre la capa de clima y luego pinche en "Propiedades"
+
+19. En el menú de "Estilo" cambie el tipo de simbología por "Categorizado" 
+
+![](figs/fig10_1.png)
+
+20. Donde dice columna seleccione "climate"
+
+![](figs/fig10_2.png)
+
+21. Pinche en el boton "Clasificar" y luego en "Aceptar"
+
+![](figs/fig10_3.png)
+
+22. Ahora QGIS muestra con distintos colores los distintos tipos de clima oara Chile}
+
+![](figs/fig10_5.png)
+
+## Crear un stack con datos raster de precipitación mensual
+
+23. Pinche en el boton "Añadir capa raster"
+
+![](figs/fig11.png)
+
+24. Vaya a la carpeta "spatial"
+
+![](figs/fig12.png)
+
+25. Haga click en la carpeta "prec" que corresponde a precipitación mensual
+
+![](figs/fig13.png)
+
+26. Dentro de la carpeta encontrará 12 archivos raster que corresponde a la precipitación mensual promedio 1970-2000.
+
+![](figs/fig14.png)
+
+27. Seleccione los 12 archivos y haga click en "Abrir"
+
+![](figs/fig15.png)
+
+28. Ahora QGIS le muestra las 12 capas con datos de precipitación mensual en forma separada
+
+29. Pinche en el menú "Raster", "Miscelanea" y "Construir raster virtual (catalogo)"
+
+![](figs/fig16.png)
+
+30. Haga click en "Seleccionar"" al lado derecho de dónde dice  "Archivos de entrada"
+
+![](figs/fig17.png)
+
+31. De la carpeta "spatial/raster/prec" seleccione los 12 archivos de precipitación
+
+![](figs/fig18.png)
+
+32. Seleccione la opción que dice "Separar" y luego haga click en "Seleccionar" pero ésta vez al lado derecho de donde dice "Archivo de salida"
+
+![](figs/fig19.png)
+
+33. Guarde el archivo en la carpeta "raster"" con el nombre "raster_virtual.vrt"
+
+![](figs/fig20.png)
+
+34. El proceso de creación del stack con los doce meses está completo. Pinche en "Aceptar" luego "Aceptar" y después en "Cerrar"
+
+![](figs/fig21.png)
+
+35. En el "Panel de Capas" debería aparecer algo como lo siguiente
+
+![](figs/fig22.png)
+
+36. Seleccione las capas de precipitación raster pero no la de "raster_virtual", haga click derecho y presione en "Eliminar" y luego aceptar
+
+![](figs/fig23.png)
+
+37. Haga click con el boton derecho en la capa "raster virtual" y luego en "Guardar Como" 
+
+![](figs/fig24.png)
+
+38. Guarde el stack en la carpeta "raster" con el nombre "precipitacion_stack.tif"
+
+![](figs/fig25.png)
+
+39. Elimine el "raster virtual"
+
+![](figs/fig26.png)
+
+40. Ahora deberían quedar las capas como se muestra en la figura
+
+![](figs/fig27.png)
+
+## Crear capa vectorial con punto de interés
+
+41. Pinche en el menú "Capa", luego en "Crear capa" y después en "Nueva capa de archivo shape..."
+
+![](figs/fig28.png)
+
+42. Seleccione como "Tipo" la opción "Punto" y luego haga click en "Aceptar"
+
+![](figs/fig29.png)
+
+43. Guarde el archivo con el nombre "puntos_clima.shp"
+
+![](figs/fig30.png)
+
+44. Ahora haga pinche en la capa creada "puntos_clima" y luego haga click en el boton "Conmutar edición"
+
+![](figs/fig31.png)
+
+45. Ahora se encuentra editando la capa "puntos_clima" y puede comenzar a crear puntos en zonas de interés.
+
+![](figs/fig32.png)
+
+46. Cree un punto en Copiapo, Quinta Normal y Osorno
+
+47. Pinche en el boton "Añadir objeto espacial"
+
+![](figs/fig33.png)
+ 
+ 48. Ingrese los "id" en forma numerada incremental, es decir para el primer punto el número 1, luego el dos y así en adelante
+ 
+![](figs/fig34.png)
+ 
+ 49. Después de terminar debería ver una imagen como la de la figura
+ 
+![](figs/fig35.png)
+
+50. Luego haga click en el boton "Conmutar edición" para terminar de editar la capa, en el cuadro de dialogo haga click en "Guardar"
+
+![](figs/fig36.png)
+
+## Extraer datos de precipitación mensual en los puntos de interés
+
+51. Haga click en el menú "Complementos" y después en "Administrar e instalar complementos..."
+
+![](figs/fig37.png)
+
+52. En "Buscar" escriba "point sampling tool"
+
+![](figs/fig38.png)
+
+53. Luego haga click en "Instalar complemento"
+
+![](figs/fig39.png)
+
+54. Pinche en la capa "puntos_clima"
+
+![](figs/fig39_1.png)
+
+55. Haga click en el menú "Complementos", "Analyses", y después en "Point sampling tool"
+
+![](figs/fig40.png)
+
+56. Aparecerá un mensaje de advertencia indicando que le numero de caracteres no puede exceder de 10
+
+![](figs/fig41.png)
+
+57. Cambie los nombres de la columna "name" de los tres últimos registros para que no excedan 10 caracteres
+
+![](figs/fig42.png)
+
+58. Después pinche en "Browse" para seleccionar el nombre y carpeta donde guardará los datos que se extraerán. Guarde en la carpeta "vectorial" con el nombre "extracción_datos_puntos.shp"
+
+![](figs/fig43.png)
+
+59. Ahora puede ver la tabla de atributos de la capa creada que tiene los datos de precipitación extraídos. Haga click con el boton derecho del mouse en la capa "extracción_datos_puntos" y luego en "Abrir tabla de atributos"
+
+![](figs/fig44.png)
+
+60. Cada fila corresponde a uno de los puntos en los cuáles se extrajo los datos de precipitación (Copiapo, Quinta Normal, Osorno). La primera columna corresponde al identificador "id" del punto y las siguientes a cada mes del año.
+
+![](figs/fig45.png)
+
+61. Ahora vamos a guardar los datos extraídos para poder abrirlos en "Excel". Hacemos click con el boton derecho del mouse en la capa "extraccion_datos_puntos" y luego en "Guardar como..."
+
+![](figs/fig46.png)
+
+62. En formato seleccione "Hoja de cálculo de MS Office Open XML"
+
+![](figs/fig47.png)
+
+63. Guárdelos en la carpeta "data" con el nombre "datos_precipitación.xlsx"
+
+![](figs/fig48.png)
+
+64. Luego haga click en "Aceptar"
+
+![](figs/fig49.png)
+
+## Crear gráficos en Microsoft Excel
+
+65. Con el explorador de Windows vaya a la carpeta "data" en donde guardó el archivo "datos_precipitación.xlsx" y haga doble click para que se abre en Excel.
+
+![](figs/fig50.png)
+66. Seleccione todos los datos (3 filas x 13 columnas).
+
+67. En una hoja nueva haga click con el boton derecho del mouse en la celda A1 y seleccione pegado especial. Active la casilla que dice transponer.
+
+![](figs/fig51.png)
+
+68. Debería ver algo como lo siguiente
+
+![](figs/fig52.png)
+
+69. Cambie los encabezados de columna como se muestra 
+
+![](figs/fig53.png)
+
+70. Ahora repita los pasos de las secciones 4.4, 4.5 y 4.6 pero para los datos de temperatura media mensual. Luego complete la tabla anterior.
+
+71. Finalmente cree un gráfico como el que se muestra a continuación para cada uno de los puntos en los cuales se extrajeron datos de precipitación y temperatura.
+
+# Resultados esperados
+
+- Generar tres gráficos de precipitación y temperatura para distintas zonas climáticas de Chile.
+
+Nota: Cada una de las figuras debe ser enviada al email francisco.zambrano@mayor.cl en formato Portable Document Format (PDF). 
+
+Fecha de entrega: **2 de abril hasta las 11:30**
+
+
+# Referencias
+
+Kottek, M., J. Grieser, C. Beck, B. Rudolf, and F. Rubel, 2006: World Map of the Köppen-Geiger climate classification updated. Meteorol. Z., 15, 259-263. DOI: 10.1127/0941-2948/2006/0130.
+
+Fick, S.E. and R.J. Hijmans, 2017. Worldclim 2: New 1-km spatial resolution climate surfaces for global land areas. International Journal of Climatology.
+
+Beck, H. E., Zimmermann, N. E., McVicar, T. R., Vergopolan, N., Berg, A., &amp; Wood, E. F. (2018). Present and future Köppen-Geiger climate classification maps at 1-km resolution. Scientific Data, 5, 180214. https://doi.org/10.1038/sdata.2018.214
+
+Zambrano, F., Wardlow, B., Tadesse, T., Lillo-Saavedra, M., &amp; Lagos, O. (2017). Evaluating satellite-derived long-term historical precipitation datasets for drought monitoring in Chile. Atmospheric Research, 186, 26???42. https://doi.org/10.1016/J.ATMOSRES.2016.11.006
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
