@@ -2,7 +2,7 @@
 title: "Suelo Agua Planta Clima (SAPC)"
 subtitle: "Clima"
 author: "Francisco Zambrano"
-date: "2 de abril 2019"
+date: "19 de marzo 2019"
 output:
   xaringan::moon_reader:
     encoding: UTF-8

@@ -14,8 +14,9 @@ Para ver las clases deber pinchar en el link correspondiente a la clase.
 
 | Fecha       | Tema                                           |
 |-------------|------------------------------------------------|
-| 12/03/2019  | [Clima (Parte I)](https://frzambra.github.io/SAPC/Clases/Catedra1-Clima/Clima1.html) y [Clima (Parte II) ](https://frzambra.github.io/SAPC/Clases/Catedra2-Clima2/Clima2.html)          |
-| 19/03/2019  | [Taller Clima](https://frzambra.github.io/SAPC/Talleres/Taller1/Taller1-Clima.pdf) |
+| 12/03/2019  | [Clima (Parte I)](https://frzambra.github.io/SAPC/Clases/Catedra1-Clima/Clima1.html) 
+| 19/03/2019  | [Clima (Parte II) ](https://frzambra.github.io/SAPC/Clases/Catedra2-Clima2/Clima2.html)     
+| 26/03/2019  | [Taller Clima](https://frzambra.github.io/SAPC/Talleres/Taller1/Taller1-Clima.pdf) |
 | 02/04/2019  | [Presentación Joaquín Zenteno](https://frzambra.github.io/SAPC/Clases/Catedra3-presentaciones/JoaquinZenteno.pptx) y  [Presentación Sebastían Flores](https://frzambra.github.io/SAPC/Clases/Catedra3-presentaciones/SebastianFlores.pdf) |
 
 
