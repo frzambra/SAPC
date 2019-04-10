@@ -1,6 +1,7 @@
-# Curso Relación suelo Agua Planta Clima
-
-<img src="https://i0.wp.com/www.trabajos.redciencia.net/wp-content/uploads/job-manager-uploads/company_logo/2017/11/LOGO-UMayor.jpg?fit=1200%2C1090" width="20%">
+<img src="img/logo_hemera.jpg" align="left" width="150px" />   <img src="img/Logo-UMAYOR.png" align="right" width="80px" />
+=======================================================================================================
+# Curso SAPC
+# Agronomía UMayor 2019
 
 ## Reseña
 
@@ -8,7 +9,7 @@ El material contenido en este repositorio corresponde a las clases del curso de 
 
 La presentación para cada una de las clases se realizan mediante [R](www.r-project.org) [markdown](https://es.wikipedia.org/wiki/Markdown). R markdown permite escribir informes reproducibles y dinámicos con R. Ademas el [repositorio](https://github.com/frzambra/SAPC/) contiene el código fuente con el cuál se realizan las clases, así es que si quieres aprender un poco de R y markdown, lo puedes hacer, solo pincha en el [repositorio](https://github.com/frzambra/SAPC/).
 
-# Clases 
+## Clases 
 
 Para ver las clases deber pinchar en el link correspondiente a la clase.  
 
