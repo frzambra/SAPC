@@ -1,6 +1,6 @@
 ---
 title: "Taller 2 - SAPC"
-subtitle: "Datos clim·ticos"
+subtitle: "Datos clim√°ticos"
 author: "Profesor Francisco Zambrano"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output: 
@@ -16,57 +16,57 @@ knitr::opts_chunk$set(echo = TRUE)
 Sys.setenv(LANG = "es")
 ```
 
-# IntroducciÛn
+# Introducci√≥n
 
-Desde el punto de vista climatolÛgico, actualmente en Chile no contamos con una densidad de estaciones  meteorolÛgicas suficientes, que esten distribuidas de forma espacial sobre el territorio y que adem·s cuenten con registros histÛricos (m·s de 30 aÒos). Esto dificulta el desarrollo de estudios en el contexto de la variabilidad clim·tica y el cambio clim·tico y con ello la toma de decisiones para diversas actividades. Los principales organimos nacionales que cuentan con redes de estaciones climatolÛgicas a lo largo de Chile son: la DirecciÛn MeteorolÛgica de Chile (DMC) y la DirecciÛn General de Aguas (DGA). Uno cuenta con registros histÛricos (DMC) pero baja densidad de estaciones, el otro (DGA) cuenta con mayor densidad de estaciones pero tiene problemas en cuanto a su registro continuo en el tiempo. En este sentido, el Centro de Ciencia del Clima y la Resilencia [(CR)2](http://www.cr2.cl) de la Universidad de Chile realiza la recolecciÛn de los datos clim·ticos desde estas dos fuentes y los deja disponibles de forma p˙blica a travÈs de su explorador clim·tico (http://explorador.cr2.cl/).
+Desde el punto de vista climatol√≥gico, actualmente en Chile no contamos con una densidad de estaciones  meteorol√≥gicas suficientes, que esten distribuidas de forma espacial sobre el territorio y que adem√°s cuenten con registros hist√≥ricos (m√°s de 30 a√±os). Esto dificulta el desarrollo de estudios en el contexto de la variabilidad clim√°tica y el cambio clim√°tico y con ello la toma de decisiones para diversas actividades. Los principales organimos nacionales que cuentan con redes de estaciones climatol√≥gicas a lo largo de Chile son: la Direcci√≥n Meteorol√≥gica de Chile (DMC) y la Direcci√≥n General de Aguas (DGA). Uno cuenta con registros hist√≥ricos (DMC) pero baja densidad de estaciones, el otro (DGA) cuenta con mayor densidad de estaciones pero tiene problemas en cuanto a su registro continuo en el tiempo. En este sentido, el Centro de Ciencia del Clima y la Resilencia [(CR)2](http://www.cr2.cl) de la Universidad de Chile realiza la recolecci√≥n de los datos clim√°ticos desde estas dos fuentes y los deja disponibles de forma p√∫blica a trav√©s de su explorador clim√°tico (http://explorador.cr2.cl/).
 
-Adem·s, a partir de datos histÛricos globales obtenidos de estaciones climatolÛgicas Fick and Hijmans (2017) desarrollaron los mapas climatolÛgicos globales a una resoluciÛn de 1 km para el periodo 1970-2000 [wordlclim 2](http://www.worldclim.org). Estos mapas cuentan con variables de precipitaciÛn, temperatura, radiaciÛn solar, velocidad del viento y presiÛn de vapor de agua en forma mensual.
+Adem√°s, a partir de datos hist√≥ricos globales obtenidos de estaciones climatol√≥gicas Fick and Hijmans (2017) desarrollaron los mapas climatol√≥gicos globales a una resoluci√≥n de 1 km para el periodo 1970-2000 [wordlclim 2](http://www.worldclim.org). Estos mapas cuentan con variables de precipitaci√≥n, temperatura, radiaci√≥n solar, velocidad del viento y presi√≥n de vapor de agua en forma mensual.
 
 # Objetivo del laboratorio
 
-Realizar el an·lisis de datos de precipitaciÛn y temperatura mensual para el periodo 1970-2000 para las siguientes ciudades o localidades:
+Realizar el an√°lisis de datos de precipitaci√≥n y temperatura mensual para el periodo 1970-2000 para las siguientes ciudades o localidades:
 
 - Quinta Normal, 
 - Osorno
 - Copiapo.
 
-Comparar entre fuentes de datos clim·ticos puntuales de Chile (explorador clim·tico del CR2) y datos obtenidos mediante interpolaciÛn espacial de redes de estaciones clim·ticas mundiales (wordlclim 2)
+Comparar entre fuentes de datos clim√°ticos puntuales de Chile (explorador clim√°tico del CR2) y datos obtenidos mediante interpolaci√≥n espacial de redes de estaciones clim√°ticas mundiales (wordlclim 2)
 
-# MetodologÌa
+# Metodolog√≠a
 
-- Descargar desde la p·gina del explorador clim·tico del (CR)2 ([http://explorador.cr2.cl/](http://explorador.cr2.cl/)) los datos de precipitaciÛn y temperatura media diarios entre el aÒo 1970 al 2000.
+- Descargar desde la p√°gina del explorador clim√°tico del (CR)2 ([http://explorador.cr2.cl/](http://explorador.cr2.cl/)) los datos de precipitaci√≥n y temperatura media diarios entre el a√±o 1970 al 2000.
 
-- Agregar los datos de temperatura y precipitaciÛn en forma mensual y obtener los promedios mensuales (apoyese con tablas din·micas)
+- Agregar los datos de temperatura y precipitaci√≥n en forma mensual y obtener los promedios mensuales (apoyese con tablas din√°micas)
 
-- Calcular el promedio 1970-2000 de la precipitaciÛn acumulada mensual y de la temperatura media mensual.
+- Calcular el promedio 1970-2000 de la precipitaci√≥n acumulada mensual y de la temperatura media mensual.
 
 - Comparar los datos obtenidos en el punto anterior con los datos de Worldclim 2 obtenidos como resultado del Taller 1.
 
-- Calcular la anomalÌa (desviaciÛn) de la precipitaciÛn para el periodo 2010-2018, como la diferencia entre la precipitaciÛn acumulada mensual (2010-2018) y el promedio mensual (1970-2010)
+- Calcular la anomal√≠a (desviaci√≥n) de la precipitaci√≥n para el periodo 2010-2018, como la diferencia entre la precipitaci√≥n acumulada mensual (2010-2018) y el promedio mensual (1970-2010)
 
 # Resultados esperados
 
-1. Crear una figura para precipitaciÛn mensual promedio (1970-2000) y precipitaciÛn obtenida de Worldclim 2, en el que se comparen ambas curvas (Figura 1).
+1. Crear una figura para precipitaci√≥n mensual promedio (1970-2000) y precipitaci√≥n obtenida de Worldclim 2, en el que se comparen ambas curvas (Figura 1).
 
 2. Crear una figura para temperatura mensual promedio (1970-2000) y temperatura obtenida de Worldclim 2, en el que se comparen ambas curvas (Figura 2).
 
-3. Crear una figura para la anomalÌa de precipitaciÛn entre 2010-2018 (Figura 3).
+3. Crear una figura para la anomal√≠a de precipitaci√≥n entre 2010-2018 (Figura 3).
 
-4. En un p·rrafo a continuaciÛn de cada figura describa lo que se presenta y discuta lo m·s importante (diferencias, variaciones en el tiempo).
+4. En un p√°rrafo a continuaci√≥n de cada figura describa lo que se presenta y discuta lo m√°s importante (diferencias, variaciones en el tiempo).
 
 # Requisitos
 
-- Cada Figura debe cumplir el formato de acuerdo a lo presentado al final de este documento. Debe tener una leyenda en la parte inferior, tÌtulos en los ejes con unidades, graduaciÛn y no debe llevar tÌtulo.
+- Cada Figura debe cumplir el formato de acuerdo a lo presentado al final de este documento. Debe tener una leyenda en la parte inferior, t√≠tulos en los ejes con unidades, graduaci√≥n y no debe llevar t√≠tulo.
 
-- Se debe entregar un informe tÈcnico breve en formato PDF el que debe ser subido a la plataforma blackboar del curso (campus virtual). No m·s de cinco p·ginas, si todo lo pedido lo puede entreggar en menos, cuanto mejor.
+- Se debe entregar un informe t√©cnico breve en formato PDF el que debe ser subido a la plataforma blackboar del curso (campus virtual). No m√°s de cinco p√°ginas, si todo lo pedido lo puede entreggar en menos, cuanto mejor.
 
 - El documento debe contener:
-  - Portada: TÌtulo, nombres, fecha
-  - IntroducciÛn: Un p·rrafo
+  - Portada: T√≠tulo, nombres, fecha
+  - Introducci√≥n: Un p√°rrafo
   - Objetivo
-  - MÈtodos: QuÈ es worldclim 2? quÈ es el explorador clim·tico del CR2? cÛmo se hizo?
-  - Resultados: figuras con descripciÛn y discusiÛn.
-  - ConclusiÛn: 
+  - M√©todos: Qu√© es worldclim 2? qu√© es el explorador clim√°tico del CR2? c√≥mo se hizo?
+  - Resultados: figuras con descripci√≥n y discusi√≥n.
+  - Conclusi√≥n: 
 
 # Fecha de entrega
 
