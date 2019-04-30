@@ -1,0 +1,165 @@
+---
+title: "Suelo-Agua-Planta-Clima (SAPC)"
+subtitle: "Anomalía de precipitación"
+author: "Profesor Francisco Zambrano </br> francisco.zambrano@umayor.cl"
+date: "4 de septiembre 2018"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: inverse, center, middle
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+dir.data <- '/mnt/discoHemera4TB1/UMayor/Agronomia/Cursos/2018/SAPC_II-2018/Clases/Clima_1/data/'
+dir.data2 <- '/mnt/discoHemera4TB1/UMayor/Agronomia/Cursos/2018/SAPC_II-2018/Clases/Clima_2/data/'
+library(tidyverse)
+library(lubridate)
+library(mapview)
+library(sf)
+library(gridExtra)
+library(scales)
+```
+
+```{r xaringan-themer, include = FALSE}
+library(xaringanthemer)
+duo(primary_color = "#1F4257", secondary_color = "#F97B64")
+```
+
+# Desviación (anomalía)
+
+---
+# Precipitación diaria
+
+Estación Quinta Normal (33.44°S, 70.68°O)
+
+```{r, echo=FALSE,message=FALSE,fig.width=10,fig.height=5}
+precQN <- read.csv(paste0(dir.data2,'pp_quinta_normal.csv'),dec=',')
+precQN %>% 
+  mutate(date=as.Date(paste0(agno,'-',mes,'-',dia))) %>% 
+  ggplot(.,aes(date,valor)) + geom_col(colour='darkblue') +
+  labs(x='dias',y='Precipitación diaria (mm)') +
+  theme_minimal()
+```
+---
+# Precipitación mensual
+
+Estación Quinta Normal (33.44°S, 70.68°O)
+
+```{r, echo=FALSE,message=FALSE,fig.width=10,fig.height=5}
+precQN %>% 
+  filter(agno>=1980 & agno<=2010) %>% 
+  group_by(agno,mes) %>% summarize(valor=sum(valor)) %>% 
+  mutate(date=as.POSIXct(paste0(agno,'-',mes,'-01'))) %>% 
+  ggplot(.,aes(date,valor)) + geom_col(colour='darkblue') +
+  scale_x_datetime(breaks=date_breaks("2 years"),date_labels = "%Y") +
+  labs(x='meses',y='Precipitación mensual (mm)') +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45))
+```
+
+---
+# Precipitación mensual media 
+
+Estación Quinta Normal (33.44°S, 70.68°O)  
+Promedio 1980-2010
+
+
+```{r, echo=FALSE,message=FALSE,fig.width=10,fig.height=5}
+precQN %>% 
+  filter(agno>=1980 & agno<=2010) %>% 
+  group_by(mes,agno) %>% summarize(valor=sum(valor)) %>%
+  group_by(mes) %>% summarize(valor=mean(valor)) %>% 
+  mutate(date=as.POSIXct(paste0('2017-',mes,'-01'))) %>% 
+  ggplot(.,aes(date,valor)) + geom_col(fill='darkblue') +
+  scale_x_datetime(breaks=date_breaks("1 months"),date_labels = "%b") +
+  labs(x='meses',y='Precipitación diaria (mm)') +
+  theme_minimal()
+```
+
+---
+# Anomalía de precipitación mensual
+
+Estación Quinta Normal (33.44°S, 70.68°O)  
+Promedio 1980-2010 vs 2018
+
+```{r, echo=FALSE,warning=FALSE,fig.width=10,fig.height=5}
+precNorm <- precQN %>% 
+  filter(agno>=1980 & agno<=2010) %>% 
+  group_by(mes,agno) %>% 
+  summarize(PP=sum(valor)) %>% 
+  group_by(mes) %>% 
+  summarize(PPmed=mean(PP)) %>% 
+  mutate(date=as.POSIXct(paste0('2018-',mes,'-01'))) 
+
+prec2018 <- precQN %>% 
+  filter(agno>=2018) %>% 
+  group_by(mes) %>% summarize(PP=sum(valor)) 
+
+precNorm$PP2018 <- NA
+precNorm$PP2018[1:6] <- prec2018$PP
+precNorm$PP2018[5:8] <- c(11.3,48.8,50.6,9.5)
+
+ggplot(precNorm)+
+  geom_col(aes(date,PP2018,fill='darkblue')) +
+  geom_line(aes(date,PPmed,colour='red'),size=2) +
+  scale_fill_manual(labels='Precipitación mensual 2018',values='darkblue') +
+  scale_colour_manual(labels='Precipitación normal (1980-2010)',values='red')+
+  scale_x_datetime(breaks=date_breaks("1 months"),date_labels = "%b") +
+  labs(x='',y='Precipitación (mm)')+
+  theme_minimal()+
+  theme(legend.position = c(0.2,0.7),
+        legend.title = element_blank())
+```
+---
+# Anomalía de precipitación mensual
+
+En `mm` respecto a lo normal
+
+$$A = PP_i-\overline{PP}$$
+
+$$D(\%) = \frac{PP_i-\overline{PP}}{\overline{PP}}\cdot 100$$
+En `porcentaje` respecto a lo normal
+
+$\overline{PP}$: Precipitación media mensual histórica (ej. 30 años)  
+$PP_i$: Precipitación mensual del mes i (ej. enero 2018)  
+---
+# Anomalía de precipitación mensual
+
+En `mm` respecto a lo normal  
+
+Estación Quinta Normal (33.44°S, 70.68°O)  
+Promedio 1980-2010 vs 2018
+
+```{r, echo=FALSE,warning=FALSE,fig.width=10,fig.height=5}
+precNorm$anoma1 <- NA
+precNorm$anoma1 <- as.numeric(unlist((precNorm[,4]-precNorm[,2])))
+ggplot(precNorm)+
+  geom_col(aes(date,anoma1),fill='darkred') +
+  scale_x_datetime(breaks=date_breaks("1 months"),date_labels = "%b") +
+  labs(x='',y='Anomalía (mm)')+
+  theme_minimal()
+
+```
+---
+# Anomalía de precipitación mensual
+
+En `porcentaje` respecto a lo normal
+
+Estación Quinta Normal (33.44°S, 70.68°O)  
+Promedio 1980-2010 vs 2018
+
+```{r, echo=FALSE,warning=FALSE,fig.width=10,fig.height=5}
+precNorm$anoma <- NA
+precNorm$anoma <- as.numeric(unlist((precNorm[,4]-precNorm[,2])*100/precNorm[,2]))
+ggplot(precNorm)+
+  geom_col(aes(date,anoma),fill='darkred') +
+  scale_x_datetime(breaks=date_breaks("1 months"),date_labels = "%b") +
+  labs(x='',y='Anomalía (%)')+
+  theme_minimal()
+```

@@ -2,7 +2,7 @@
 title: "Taller 2 - SAPC"
 subtitle: "Datos climáticos"
 author: "Profesor Francisco Zambrano"
-date: "`r format(Sys.time(), '%d %B %Y')`"
+date: "23 abril 2019"
 output: 
   pdf_document:
     number_sections: true
@@ -22,17 +22,26 @@ Desde el punto de vista climatológico, actualmente en Chile no contamos con una
 
 Además, a partir de datos históricos globales obtenidos de estaciones climatológicas Fick and Hijmans (2017) desarrollaron los mapas climatológicos globales a una resolución de 1 km para el periodo 1970-2000 [wordlclim 2](http://www.worldclim.org). Estos mapas cuentan con variables de precipitación, temperatura, radiación solar, velocidad del viento y presión de vapor de agua en forma mensual.
 
-# Objetivo del laboratorio
+# Objetivo del taller
+
+1. Comparar y analizar la utilidad del producto worldclim 2 respecto a datos de fuentes de estaciones climáticas nacionales.
+
+2. Comparar anomalías de precipitación respecto a distintos periodos climáticos (1970-2000 y 1980-2010)
+
+
+# Metodología
+
+## General 
 
 Realizar el análisis de datos de precipitación y temperatura mensual para el periodo 1970-2000 para las siguientes ciudades o localidades:
 
+- Copiapo,
 - Quinta Normal, 
 - Osorno
-- Copiapo.
 
 Comparar entre fuentes de datos climáticos puntuales de Chile (explorador climático del CR2) y datos obtenidos mediante interpolación espacial de redes de estaciones climáticas mundiales (wordlclim 2)
 
-# Metodología
+## Específica
 
 - Descargar desde la página del explorador climático del (CR)2 ([http://explorador.cr2.cl/](http://explorador.cr2.cl/)) los datos de precipitación y temperatura media diarios entre el año 1970 al 2000.
 
@@ -42,32 +51,42 @@ Comparar entre fuentes de datos climáticos puntuales de Chile (explorador clim�
 
 - Comparar los datos obtenidos en el punto anterior con los datos de Worldclim 2 obtenidos como resultado del Taller 1.
 
-- Calcular la anomalía (desviación) de la precipitación para el periodo 2010-2018, como la diferencia entre la precipitación acumulada mensual (2010-2018) y el promedio mensual (1970-2010)
+- Calcular la anomalía (desviación) de la precipitación para el periodo 2010-2019, como la diferencia entre la precipitación acumulada mensual (2010-2019) y el promedio mensual (1970-2000)
+
+- Repita el punto anterior pero considerando como periodo de referencia el promedio mensual (1980-2010)
 
 # Resultados esperados
 
-1. Crear una figura para precipitación mensual promedio (1970-2000) y precipitación obtenida de Worldclim 2, en el que se comparen ambas curvas (Figura 1).
+1. Crear una figura para precipitación mensual promedio (1970-2000) y precipitación obtenida de Worldclim 2, en el que se comparen ambas curvas.
 
-2. Crear una figura para temperatura mensual promedio (1970-2000) y temperatura obtenida de Worldclim 2, en el que se comparen ambas curvas (Figura 2).
+2. Crear una figura para temperatura mensual promedio (1970-2000) y temperatura obtenida de Worldclim 2, en el que se comparen ambas curvas.
 
-3. Crear una figura para la anomalía de precipitación entre 2010-2018 (Figura 3).
+3. Crear una figura para la anomalía de precipitación entre 2010-2019 con periodo de referencia 1970-2000
 
-4. En un párrafo a continuación de cada figura describa lo que se presenta y discuta lo más importante (diferencias, variaciones en el tiempo).
+4. Crear una figura para la anomalía de precipitación entre 2010-2019 con periodo de referencia 1980-2010
+
+5. En un párrafo a continuación de cada figura describa lo que se presenta y discuta lo más importante (diferencias, variaciones en el tiempo).
+
+6. Discuta cuál es la útilidad del producto Worldclim 2.0 respecto a los datos climáticos obtenidos de fuentes nacionales (DGA, DMC, Agromet)
+
+7. Discuta la diferencia entre las anomalías de precipitacion calculadas en el punto 3 y 4.
 
 # Requisitos
 
-- Cada Figura debe cumplir el formato de acuerdo a lo presentado al final de este documento. Debe tener una leyenda en la parte inferior, títulos en los ejes con unidades, graduación y no debe llevar título.
+- Cada Figura debe cumplir el formato de acuerdo a lo presentado al final de este documento (Figura 1). Debe contener una leyenda en la parte inferior, títulos en los ejes con las respectivas unidades y graduación. La figura no debe llevar título.
 
-- Se debe entregar un informe técnico breve en formato PDF el que debe ser subido a la plataforma blackboar del curso (campus virtual). No más de cinco páginas, si todo lo pedido lo puede entreggar en menos, cuanto mejor.
+- Se debe entregar un informe técnico breve en formato PDF el que debe ser subido a la plataforma blackboar del curso (campus virtual). No más de cinco páginas, si todo lo pedido lo puede entregar en menos, cuanto mejor.
 
 - El documento debe contener:
   - Portada: Título, nombres, fecha
   - Introducción: Un párrafo
   - Objetivo
-  - Métodos: Qué es worldclim 2? qué es el explorador climático del CR2? cómo se hizo?
+  - Métodos: ¿Qué es worldclim 2? ¿qué es el explorador climático del CR2? ¿qué y cómo se hizo?
   - Resultados: figuras con descripción y discusión.
   - Conclusión: 
 
 # Fecha de entrega
+
+30 de abril 2019 hasta las 11:30am
 
 ![Ejemplo de lo que debe contener una figura](img/grafico_ejemplo.png)

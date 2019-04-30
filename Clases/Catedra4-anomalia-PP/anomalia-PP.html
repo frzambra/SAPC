@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Suelo-Agua-Planta-Clima (SAPC)</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Profesor Francisco Zambrano  francisco.zambrano@umayor.cl" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Suelo-Agua-Planta-Clima (SAPC)
+## Anomalía de precipitación
+### Profesor Francisco Zambrano </br> <a href="mailto:francisco.zambrano@umayor.cl" class="email">francisco.zambrano@umayor.cl</a>
+### 4 de septiembre 2018
+
+---
+
+class: inverse, center, middle
+
+
+
+
+
+# Desviación (anomalía)
+
+---
+# Precipitación diaria
+
+Estación Quinta Normal (33.44°S, 70.68°O)
+
+![](anomalia-PP_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+---
+# Precipitación mensual
+
+Estación Quinta Normal (33.44°S, 70.68°O)
+
+![](anomalia-PP_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+---
+# Precipitación mensual media 
+
+Estación Quinta Normal (33.44°S, 70.68°O)  
+Promedio 1980-2010
+
+
+![](anomalia-PP_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+---
+# Anomalía de precipitación mensual
+
+Estación Quinta Normal (33.44°S, 70.68°O)  
+Promedio 1980-2010 vs 2018
+
+![](anomalia-PP_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+---
+# Anomalía de precipitación mensual
+
+En `mm` respecto a lo normal
+
+`$$A = PP_i-\overline{PP}$$`
+
+`$$D(\%) = \frac{PP_i-\overline{PP}}{\overline{PP}}\cdot 100$$`
+En `porcentaje` respecto a lo normal
+
+`\(\overline{PP}\)`: Precipitación media mensual histórica (ej. 30 años)  
+`\(PP_i\)`: Precipitación mensual del mes i (ej. enero 2018)  
+---
+# Anomalía de precipitación mensual
+
+En `mm` respecto a lo normal  
+
+Estación Quinta Normal (33.44°S, 70.68°O)  
+Promedio 1980-2010 vs 2018
+
+![](anomalia-PP_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+---
+# Anomalía de precipitación mensual
+
+En `porcentaje` respecto a lo normal
+
+Estación Quinta Normal (33.44°S, 70.68°O)  
+Promedio 1980-2010 vs 2018
+
+![](anomalia-PP_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

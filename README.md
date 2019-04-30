@@ -19,5 +19,7 @@ Para ver las clases deber pinchar en el link correspondiente a la clase.
 | 19/03/2019  | [Clima (Parte II) ](https://frzambra.github.io/SAPC/Clases/Catedra2-Clima2/Clima2.html)     
 | 26/03/2019  | [Taller Clima](https://frzambra.github.io/SAPC/Talleres/Taller1/Taller1-Clima.pdf) |
 | 02/04/2019  | [Presentación Joaquín Zenteno](https://frzambra.github.io/SAPC/Clases/Catedra3-presentaciones/JoaquinZenteno.pptx) y  [Presentación Sebastían Flores](https://frzambra.github.io/SAPC/Clases/Catedra3-presentaciones/SebastianFlores.pdf) |
-
-
+| 23/04/2019  | [Taller Clima 2](https://frzambra.github.io/SAPC/Talleres/Taller2/Taller2-Clima.pdf) |
+| 19/03/2019  | [Clima (Parte II) ](https://frzambra.github.io/SAPC/Clases/Catedra2-Clima2/Clima2.html) |   
+| 30/04/2019  | [Anomalía Precipitación](https://frzambra.github.io/SAPC/Clases/Catedra4-anomalia-PP/anomalia-PP.html)     |
+| 30/04/2019  | [Suelo-Agua ](https://frzambra.github.io/SAPC/Clases/Catedra4-suelo-agua/Suelo-Agua.html)     |
