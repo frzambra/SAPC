@@ -48,6 +48,7 @@ duo_accent(
 
 - Humedad aprovechable, lámina de agua, humedad disponible
 
+- Potencial de agua en el suelo
 
 ---
 class: center, middle

@@ -2,7 +2,7 @@
 title: "Suelo-Agua-Planta-Clima (SAPC)"
 subtitle: "Anomalía de precipitación"
 author: "Profesor Francisco Zambrano </br> francisco.zambrano@umayor.cl"
-date: "4 de septiembre 2018"
+date: "30 de abril 2018"
 output:
   xaringan::moon_reader:
     lib_dir: libs
