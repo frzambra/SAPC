@@ -22,7 +22,7 @@ Para ver las clases deber pinchar en el link correspondiente a la clase.
 | 23/04/2019  | [Taller Clima 2](https://frzambra.github.io/SAPC/Talleres/Taller2/Taller2-Clima.pdf) |
 | 19/03/2019  | [Clima (Parte II) ](https://frzambra.github.io/SAPC/Clases/Catedra2-Clima2/Clima2.html) |   
 | 30/04/2019  | [Anomalía Precipitación](https://frzambra.github.io/SAPC/Clases/Catedra4-anomalia-PP/anomalia-PP.html)     |
-| 30/04/2019  | [Suelo-Agua ](https://frzambra.github.io/SAPC/Clases/Catedra4-suelo-agua/Suelo-Agua.html)   |
-| 7/05/2019  | [Suelo-Agua 2](https://frzambra.github.io/SAPC/Clases/Catedra5-suelo-agua2/Suelo-Agua2.html)   |
-| 7/05/2019  | [Suelo-Agua 3](https://frzambra.github.io/SAPC/Clases/Catedra5-suelo-agua2/Suelo-Agua2.html)   |
+| 30/04/2019  | [Suelo-Agua ](https://frzambra.github.io/SAPC/Clases/Catedra4-suelo-agua/uelo-Agua.html)   |
+| 7/05/2019  | [Suelo-Agua 2](https://frzambra.github.io/SAPC/Clases/Catedra5-suelo-agua2/suelo-Agua2.html)   |
+| 7/05/2019  | [Suelo-Agua 3](https://frzambra.github.io/SAPC/Clases/Catedra5-suelo-agua2/suelo-Agua2.html)   |
 | 7/05/2019  | [Taller 3: Suelo-Agua](https://frzambra.github.io/SAPC/Talleres/Taller3/Taller3-Suelo-Agua.pdf)   |
