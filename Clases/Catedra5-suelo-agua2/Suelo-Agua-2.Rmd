@@ -1,0 +1,190 @@
+---
+title: "Suelo-Agua-Planta-Clima (SAPC)"
+subtitle: "Suelo-Agua (Parte I)"
+author: "Profesor Francisco Zambrano </br> francisco.zambrano@umayor.cl"
+date: "7 de mayo 2019"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    enconding: latin1
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: center, middle
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+library(xaringanthemer)
+# solarized_dark(
+#   code_font_family = "Fira Code",
+#   code_font_url    = "https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css",
+#   text_bold_color = "#af241a"
+# )
+duo_accent(
+  primary_color = "#006747", 
+  secondary_color = "#CFC493",
+  code_font_family = "Fira Code",
+  code_font_url    = "https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css")
+  #text_bold_color = "#af241a")
+
+```
+
+# Overview
+
+---
+# Temas de hoy
+
+- Curva Característica de humedad de suelo
+
+- Ejercicios: 
+  - Agua y propiedades
+  - Contenido de agua en el suelo
+  - Humedad aprovechable, lámina de agua, humedad disponible
+
+- Conductividad hidráulica e infiltración
+
+- Taller 3: Suelo-agua con Soil Water Characteristics
+
+---
+class: center, middle
+
+# Curva Característica de humedad de suelo
+
+---
+
+# AKA: Curva de retención de humedad de suelo
+
+La curva característica de un suelo es aquella que se obtiene al graficar el contenido de agua del suelo (eje de las Y) versus la tensión o potencial mátrico (eje de las X). Esta curva es propia de cada suelo y varia con la textura y estructura. 
+
+Esta curva se obtiene en laboratorio, sometiendo el suelo a a presiones de 0,33 (0,03MPa) y 15 (1,5 MPa) bares mediante una olla presión.
+
+---
+# Curva Característica de humedad de suelo
+
+.center[
+![](img/curva_caracteristica_agua-suelo.png)
+]
+---
+
+# Histérisis
+
+El potencial químico del agua en el suelo, a iguales contenidos de humedad, dependerá del sentido en que se siga la curva (de absorción o desorción respectivamente). 
+
+¿A igual potencial matricial en que caso se tiene mayor contenido de humedad? ¿cuando el suelo se está secando o mojando?
+
+.center[
+![](img/curva_caracteristica_suelo_aernoso.png)
+]
+
+---
+# Potencial total de agua en el suelo
+
+$$\psi_{T}=\psi_m+\psi_o+\psi_g+\psi_p$$
+
+$\psi_T$: potencial total de agua en el suelo  
+$\psi_m$: potencial matricial  
+$\psi_o$: potencial osmótico  
+$\psi_g$: potencial gravitacional  
+$\psi_p$: potencial de presión
+
+El movimiento de agua en el continuo Suelo-Planta-Atmósfera se debe a la diferencia de potencial total.
+
+$$\Delta \psi_T$$
+
+---
+# Determinar la dirección de flujo de agua
+
+1. Sumar los potenciales individuales en cada punto.
+
+2. Determinar si hay una diferencia de potencial.
+
+3. El agua se moverá desde alta hacia baja energía.
+
+4. Punto A - Punto B
+
+**Positivo** Desde A hacia B  
+
+**Negativo** Desde B hacia A
+
+---
+# Ejemplo 1
+
+Dos tensiómetros cuyas cápsulas instaladas en un suelo a diferentes profundidades: A=40 cm, B=70cm. Ambos tensiómetros marcan 80 cb. (Asuma el nivel del suelo como el nivel de referencia).
+
+a) ¿Cuál es el potencial del agua en los puntos A y B? 
+
+b) ¿Hacia dónde se mueve el agua?
+
+---
+# Ejemplo 2
+
+Hay un suelo de 60 cm de profundidad en una ladera de un cerro con una pendiente de 20%. Se instalan 2 tensiómetros a 50 cm de profundidad y a una distancia horizontal de 1 metro uno de otro. El tensiómetro A (el más alto) marca 50cb y el tensiómetro B (el más bajo) marca 150cb. 
+
+a) ¿Cuál es el potencial total del agua en cada punto? 
+
+b) ¿Hacia dónde se mueve el agua? (N.R. punto B).
+
+---
+class: center, middle
+
+# Ejercicios
+
+---
+# Densidad aparente/porosidad
+
+**Ejercicios**
+
+1. Calcule la densidad aparente de una muestra de suelo de 400 $cm^3$ que pesa 600 g y tiene un 10% de agua.
+
+2. Calcule la porosidad de una muestra de suelo que tiene una densidad aparente de 1.35 $g/cm^3$. Asuma
+una densidad de partícula de 2,65 $g/cm^3$
+
+3. Una muestra de suelo húmedo tiene una masa de 1000 g y un volumen de 640 $cm^3$. Al ser secada en
+una estufa a 105°C por 24 horas su masa seca fue de 800 g. Calcule la densidad aparente, el volumen
+de agua y el volumen de suelo seco. Asuma una densidad real de 2,65 $g/cm^3$
+
+4. Una muestra de suelo con 40% de porosidad tiene un volumen total de 120 $cm^3$ y un contenido de agua de 0,3 $cm^3/cm^3$. Si la densidad de la fase sólida es de 2,5 $g/cm^3$. ¿Cuál es la densidad aparente?
+
+---
+# Contenido de agua en el suelo
+
+1. Una muestra de 50 $cm^3$ de suelo humedo pesó 68g. Después de secarse a 105°C por 24 horas pesó 60g. ¿Cual fue el contenido de agua gravimetrico? ¿Cual fue el contenido de agua volumétrico? ¿Cuál es el contenido de agua a saturación?
+
+--
+
+2. Una muestra de suelo tiene un contenido de humedad de 35%. ¿Qué volumen de agua se debe añadir a una muestra de 1 kg de ese suelo para que su contenido de humedad aumente a un 50%?
+
+---
+# Contenido de humedad en el suelo
+
+Dada las siguientes características de perfil de suelo calcular la humedad aprovechable.
+
+.center[
+![](img/HA_estratas.png)
+]
+
+---
+# Contenido de humedad en el suelo
+
+**Ejercicios**
+
+Con el objetivo de conocer la $\rho_{ap}$ de un suelo homogéneo, franco, de 80 cm de profundidad que se encontraba saturado, se sacó una muestra con forma de cubo de 10 cm por lado, que pesó 1900 g. La
+muestra se llevó inmediatamente a una estufa a 105°C hasta un peso constante de 1400 g. Para conocer
+el contenido de agua a CC, dicho suelo se dejó drenar por 24 horas y se sacó una muestra que dio los
+siguientes resultados: 1570 g y 1250 g en peso húmedo y seco, respectivamente. Para determinar el PMP se colocó una muestra en un plato de presión a 15 bares que pesó 1320 g en húmedo, al secarla en estufa a 105°C pesó 1175 g. Conociendo el contenido de agua de dicho suelo a CC y PMP conteste:
+
+a) Si el U.R. es de 30%, ¿cuántos gramos de agua habría que agregar a un macetero cilíndrico de 40 cm de
+alto y 30 cm de diámetro que se llena con este suelo?.
+
+b) ¿Cuantos $m^3$ de agua por hectárea existen en el suelo en el momento en que ha cesado el drenaje del
+exceso de agua?
+
+
+
+
